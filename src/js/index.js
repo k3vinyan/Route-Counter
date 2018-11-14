@@ -2,6 +2,8 @@ let routes = [];
 let selectedRoutes = [];
 let clusters = [];
 
+console.dir($)
+console.dir($.modal)
 
 $('#file').change(function(){
     const file = $(this)[0].files['0']
@@ -59,6 +61,7 @@ $('#file').change(function(){
                 
             }
             let filename = file.name;
+            $('#labelfile')[0].innerHTML = filename;
             createTable(routes)
 
             for(let i = 0; i < clusters.length; i++){
@@ -105,84 +108,51 @@ $('#selectId').change(function(){
     $('#tableContainer').html(table)
     setTimeout(function(){
         $('#tableContainer').show('slide', { direction: 'right' })
-    }, 1000)
+    }, 750)
    
 })
 
 $('#dlExcel').click(function(){
-    
+    const routeTotal = selectedRoutes.length;
 
-    const workbook = $JExcel.new();
-            const headerStyle = workbook.addStyle({border: "none,none,none,thin #551A8B",font: "Calibri 12 #FFFFFF B", fill: "#000000", align: "C C"});
-            let style = workbook.addStyle({border: "thin, thin, thin, thin #333333", align: "C C"})
-            workbook.set(0, 0, undefined, 6)
-            workbook.set(0, 1, undefined, 6)
-            workbook.set(0, 2, undefined, 4)
-            workbook.set(0, 3, undefined, 6)
-            workbook.set(0, 4, undefined, 6)
-            workbook.set(0, 5, undefined, 4)
-            workbook.set(0, 6, undefined, 6)
-            workbook.set(0, 7, undefined, 6)
-            workbook.set(0, 8, undefined, 4)
-            workbook.set(0, 9, undefined, 6)
-            workbook.set(0, 10, undefined, 6)
-            workbook.set(0, 11, undefined, 4)
-            workbook.set(0, 12, undefined, 6)
-            workbook.set(0, 13, undefined, 6)
-            workbook.set(0, 14, undefined, 4)
-            workbook.set(0, 15, undefined, 6)
-            workbook.set(0, 16, undefined, 6)
-            workbook.set(0, 17, undefined, 4)
-            workbook.set(0, 18, undefined, 6)
-            workbook.set(0, 19, undefined, 6)
+    if(routeTotal === 0){
+        $("#warning").modal();
+    } else {
+        const workbook = $JExcel.new();
+        const headerStyle = workbook.addStyle({border: "none,none,none,thin #551A8B",font: "Calibri 12 #FFFFFF B", fill: "#000000", align: "C C"});
+        let style = workbook.addStyle({border: "thin, thin, thin, thin #333333", align: "C C"})
 
-            for(let i = 0; i < selectedRoutes.length; i++){
-                if(selectedRoutes[i].flexRoute){
-                    style = workbook.addStyle({border: "thin, thin, thin, thin #333333", align: "C C"})
-                } else {
-                    style = workbook.addStyle({border: "thin, thin, thin, thin #333333", align: "C C", fill: "#FFFF00"})
-                }
+        let j = 0;
+        for(let i = 0; i < Math.ceil(routeTotal/39) + 1;i++ ){
+            workbook.set(0, j, undefined, 6)
+            workbook.set(0, j+1, undefined, 6)
+            workbook.set(0, j+2, undefined, 4)
+            j += 3
+        }
 
-                if(i < 39){
-                    workbook.set(0, 0, 0, 'Route', headerStyle)
-                    workbook.set(0, 1, 0, 'Count', headerStyle)
-                    workbook.set(0, 0, i+1, selectedRoutes[i].route, style)
-                    workbook.set(0, 1, i+1, selectedRoutes[i].count, style)
-                } else if(i < 78){
-                    workbook.set(0, 3, 0, 'Route', headerStyle)
-                    workbook.set(0, 4, 0, 'Count', headerStyle)
-                    workbook.set(0, 3, i-38, selectedRoutes[i].route, style)
-                    workbook.set(0, 4, i-38, selectedRoutes[i].count, style)
-                } else if( i < 117){
-                    workbook.set(0, 6, 0, 'Route', headerStyle)
-                    workbook.set(0, 7, 0, 'Count', headerStyle)
-                    workbook.set(0, 6, i-77, selectedRoutes[i].route, style)
-                    workbook.set(0, 7, i-77, selectedRoutes[i].count, style)
-                } else if(i < 156){
-                    workbook.set(0, 9, 0, 'Route', headerStyle)
-                    workbook.set(0, 10, 0, 'Count', headerStyle)
-                    workbook.set(0, 9, i-116, selectedRoutes[i].route, style)
-                    workbook.set(0, 10, i-116, selectedRoutes[i].count, style)
-                } else if(i < 195){
-                    workbook.set(0, 12, 0, 'Route', headerStyle)
-                    workbook.set(0, 13, 0, 'Count', headerStyle)
-                    workbook.set(0, 12, i-155, selectedRoutes[i].route, style)
-                    workbook.set(0, 13, i-155, selectedRoutes[i].route, style)
-                } else if(i < 234){
-                    workbook.set(0, 15, 0, 'Route', headerStyle)
-                    workbook.set(0, 16, 0, 'Count', headerStyle)
-                    workbook.set(0, 15, i-194, selectedRoutes[i].route, style)
-                    workbook.set(0, 16, i-194, selectedRoutes[i].route, style)
-                } else {
-                    workbook.set(0, 18, 0, 'Route', headerStyle)
-                    workbook.set(0, 19, 0, 'Count', headerStyle)
-                    workbook.set(0, 18, i-233, selectedRoutes[i].route, style)
-                    workbook.set(0, 19, i-233, selectedRoutes[i].route, style)
-                }
+        let k = 0; let n = 1; let r = 0;
+        for(let i = 0; i < selectedRoutes.length; i++){
+            if(selectedRoutes[i].flexRoute){
+                style = workbook.addStyle({border: "thin, thin, thin, thin #333333", align: "C C"})
+            } else {
+                style = workbook.addStyle({border: "thin, thin, thin, thin #333333", align: "C C", fill: "#FFFF00"})
             }
-            let date = new Date();
-            console.log(date)
-            workbook.generate(date + '.xlsx');
+            if(i%39 === 0 && i != 0){
+                k += 3;
+                n += 38;
+                r += 1;
+            }
+
+            workbook.set(0, k, 0, 'Route', headerStyle);
+            workbook.set(0, k+1, 0, 'Count', headerStyle);
+            workbook.set(0, k, i-n-r, selectedRoutes[i].route, style);
+            workbook.set(0, k+1, i-n-r, selectedRoutes[i].count, style);
+        }
+
+        let date = new Date();
+        workbook.generate(date + '.xlsx');
+    }
+    
 })
 
 function createTable(data){

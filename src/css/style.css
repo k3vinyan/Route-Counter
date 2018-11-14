@@ -34,9 +34,6 @@ body {
 .browseDiv {
     margin: 10px;
 }
-.labelBtn {
-    outline-color: coral;
-}
 #dlExcel {
     background-color: #5c5393;
 }
@@ -47,4 +44,24 @@ body {
 #tableContainer {
     display: none;
     background-color: white;
+}
+#labelfile {
+    color: #5c5393;
+}
+#labelfile:hover {
+    color: #222033;
+    font-weight: bold;
+}
+
+h4 {
+    color: #3a3655;
+}
+
+#dialog {
+    position: absolute;
+    border: 1px solid black;
+    background-color: whitesmoke;
+}
+.close-modal {
+    display: none !important;
 }
