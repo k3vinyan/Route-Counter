@@ -143,10 +143,12 @@ $('#dlExcel').click(function(){
                 r += 1;
             }
 
+            let position = i - n - r + 2;
+
             workbook.set(0, k, 0, 'Route', headerStyle);
             workbook.set(0, k+1, 0, 'Count', headerStyle);
-            workbook.set(0, k, i-n-r, selectedRoutes[i].route, style);
-            workbook.set(0, k+1, i-n-r, selectedRoutes[i].count, style);
+            workbook.set(0, k, position, selectedRoutes[i].route, style);
+            workbook.set(0, k+1, position, selectedRoutes[i].count, style);
         }
 
         let date = new Date();
