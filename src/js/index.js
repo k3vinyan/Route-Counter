@@ -126,7 +126,7 @@ $('#dlExcel').click(function(){
         for(let i = 0; i < Math.ceil(routeTotal/39) + 1;i++ ){
             workbook.set(0, j, undefined, 6)
             workbook.set(0, j+1, undefined, 6)
-            workbook.set(0, j+2, undefined, 4)
+            workbook.set(0, j+2, undefined, 3)
             j += 3
         }
 
