@@ -1,9 +1,6 @@
 let routes = [];
 let selectedRoutes = [];
-let clusters = [];
-
-console.dir($)
-console.dir($.modal)
+let clusters = [];  
 
 $('#file').change(function(){
     const file = $(this)[0].files['0']
@@ -154,8 +151,9 @@ $('#dlExcel').click(function(){
         let date = new Date();
         workbook.generate(date + '.xlsx');
     }
-    
+    $("#thankyou").modal();
 })
+
 
 function createTable(data){
     let clusterTotal = {}

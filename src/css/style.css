@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Indie+Flower&family=Lobster&family=Permanent+Marker&display=swap');
+
+/* font-family: 'Dancing Script', cursive;
+font-family: 'Indie Flower', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Permanent Marker', cursive; */
+
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -25,7 +32,21 @@ select {
 }
 
 body {
-    background-color: #3a3655;
+    background: url('../bagel-bg.jpeg');
+    background-size: cover;
+    font-family: 'Dancing Script', cursive;
+}
+
+.header-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.header-container h1 {
+    font-size: 56px;
 }
 
 .card {
@@ -36,7 +57,14 @@ body {
 }
 #dlExcel {
     background-color: #5c5393;
+    font-family: 'Indie Flower', cursive; 
 }
+
+#selectId, #dlExcel, .header-container, body {
+    font-family: 'Indie Flower', cursive;
+}
+
+
 #dlExcel:hover {
     background-color: #3a3655;  
 }
@@ -53,6 +81,10 @@ body {
     font-weight: bold;
 }
 
+h1, h2 {
+    text-align: center;
+}
+
 h4 {
     color: #3a3655;
 }
@@ -64,4 +96,11 @@ h4 {
 }
 .close-modal {
     display: none !important;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -7,30 +7,47 @@
     <link rel="stylesheet" href="bootstrap.min.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <title>Welcome to Hazel Bagel</title>
+    <title>Hazel's Bagel</title>
 </head>
 <body>
+    <header class="header-container">
+        <h1>Welcome to Hazel's Bagel Shop</h1>
+        <p>The Best Bagels in Town</p>
+    </header>
 
-        <div id="warning" class="modal">
-            <p>Please select a cluster first... </p>
+
+    <div id="thankyou" class="modal">
+        <div class="center">
+            <h1>Thank You for Purchasing from Hazel's Bagel!</h1>
+            <img src="bagelchu.gif" />
+                <h2>Please visit our sister store</h2>
+                <h2>Little Richardo's Pizzeria</h2>
             <a href="#" rel="modal:close">Close</a>
         </div>
+    </div>
+
+    <div id="warning" class="modal">
+        <div class="center">
+            <p>Please select a bagel first... </p>
+            <a href="#" rel="modal:close">Close</a>
+        </div>
+    </div>
               
     <div class="card text-center" style="margin-top: 20px;">
-        <div class="card-header">
+        <!-- <div class="card-header">
             <h4>Hazel's Amazing Checkout List Generator v1.0</h4>
-        </div>
+        </div> -->
         <div class="card-body">
             <div class="center-block browseDiv">
                 <label class="btn labelBtn" id="labelfile">
-                    Browse file&hellip; <input type="file" style="display: none;" id='file'>
+                    Search for Bagels&hellip; <input type="file" style="display: none;" id='file'>
                 </label>
             </div>
             <div class="center-block">
                 <select id='selectId' class="btn">
                     <option value='' disabled selected>
                         <p class="text-center">
-                            Select A Cluster
+                            Select A Bagel...
                         </p>
                     </option>
                 </select>
@@ -38,7 +55,7 @@
         </div>
         <div class="card-footer text-muted">
             <div class="center-block">
-                <button id='dlExcel' type='button' class="btn btn-block btn-primary">Download Excel</button>
+                <button id='dlExcel' type='button' class="btn btn-block btn-primary">Download Bagel!</button>
             </div>
         </div>
     </div>

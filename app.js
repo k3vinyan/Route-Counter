@@ -4,6 +4,7 @@ const path = require('path');
 
 app.use(express.static('src/js'));
 app.use(express.static('src/css'));
+app.use(express.static('src/img'));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'))
 })
