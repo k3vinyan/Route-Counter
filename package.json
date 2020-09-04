@@ -12,7 +12,7 @@
   "dependencies": {
     "exceljs": "^1.6.3",
     "express": "^4.16.4",
-    "papaparse": "^4.6.1"
+    "papaparse": "^5.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
