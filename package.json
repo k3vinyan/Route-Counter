@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "exceljs": "^1.6.3",
+    "exceljs": "^1.15.0",
     "express": "^4.16.4",
     "papaparse": "^4.6.1"
   },
